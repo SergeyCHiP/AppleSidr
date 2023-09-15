@@ -15,8 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         Task {
+            ChipController().start()
             let some = await ServiceAPI().info()
-            print("\(some)")
+            print(some)
         }
     }
 
