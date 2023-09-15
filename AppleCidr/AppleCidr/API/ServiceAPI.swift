@@ -89,6 +89,35 @@ final class ServiceAPI {
         return []
     }
 
+    func limitPriceBuy(id: Int, price: Int, quantity: Int) async -> [PostBidResult] {
+        let url = URL(string: baseUrl + "/LimitPriceBuy")!
+        var parameters = Parameters()
+        parameters["symbolId"] = id
+        parameters["price"] = price
+        parameters["quantity"] = quantity
+
+        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+            .serializingDecodable([PostBidResult].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
+    func cancelOrder(id: Int) async -> Bool {
+        let url = URL(string: baseUrl + "/LimitPriceBuy")!
+        var parameters = Parameters()
+        parameters["bidId"] = id
+
+        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+            .serializingDecodable([PostBidResult].self)
+            .response
+
+        return response.response?.statusCode == 200
+    }
+
     func info() async -> InfoResponse? {
         var request = URLRequest(url: .init(string: baseUrl + "/info")!)
         request.headers = headers
@@ -114,6 +143,12 @@ struct News: Decodable {
 struct BidStat: Decodable {
     let price: Int64
     let quantity: Int32
+}
+
+struct PostBidResult: Decodable {
+    let price: Int64
+    let message: String
+    let bidId: Int64
 }
 
 struct CompanyBids: Decodable {
