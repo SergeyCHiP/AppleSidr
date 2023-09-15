@@ -1,0 +1,6 @@
+framework module Pods_AppleCidr {
+  umbrella header "Pods-AppleCidr-umbrella.h"
+
+  export *
+  module * { export * }
+}
