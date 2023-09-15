@@ -106,6 +106,23 @@ final class ServiceAPI {
         return []
     }
 
+    func limitPriceSell(id: Int, price: Int, quantity: Int) async -> [PostBidResult] {
+        let url = URL(string: baseUrl + "/LimitPriceSell")!
+        var parameters = Parameters()
+        parameters["symbolId"] = id
+        parameters["price"] = price
+        parameters["quantity"] = quantity
+
+        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+            .serializingDecodable([PostBidResult].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
     func cancelOrder(id: Int) async -> Bool {
         let url = URL(string: baseUrl + "/LimitPriceBuy")!
         var parameters = Parameters()
