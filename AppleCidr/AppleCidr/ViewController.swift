@@ -12,26 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-        Task {
-            let tickets = await ServiceAPI().getSymbols()
-            TicketStorage.shared.tickets = tickets
-		}
+    
 		Task {
-            ChipController().start()
-            let some = await ServiceAPI().info()
-            print(some)
+           await ChipController().start()
         }
-
-        Task {
-            Prices().bidsByNews()
-        }
-
-//        Task {
-//            let some = await ServiceAPI().getSymbols()
-//            print("\(some)")
-//        }
     }
 
 }
