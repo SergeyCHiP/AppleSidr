@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         Task {
-            await ServiceAPI().news()
+            let some = await ServiceAPI().news1Minute()
+            print("\(some)")
         }
     }
 
