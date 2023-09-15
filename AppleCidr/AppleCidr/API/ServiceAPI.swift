@@ -103,6 +103,8 @@ final class ServiceAPI {
             return value
         }
 
+        print(response)
+
         return []
     }
 
@@ -119,6 +121,7 @@ final class ServiceAPI {
         if let value = response.value {
             return value
         }
+        print(response)
 
         return []
     }
@@ -158,43 +161,43 @@ struct News: Decodable {
 }
 
 struct BidStat: Decodable {
-    let price: Int64
+    let price: Int
     let quantity: Int32
 }
 
 struct PostBidResult: Decodable {
-    let price: Int64
+    let price: Int
     let message: String
-    let bidId: Int64
+    let bidId: Int
 }
 
 struct CompanyBids: Decodable {
-    let id: Int64
+    let id: Int
     let ticker: String
     let bids: [BidStat]
 }
 
 struct GetSymbol: Decodable {
-    let id: Int64
+    let id: Int
     let ticker: String
 }
 
 struct InfoResponse: Decodable {
     struct Account: Decodable {
-        let id: Int64
+        let id: Int
         let name: String
     }
     struct Bid: Decodable {
-        let id: Int64
-        let symbolId: Int64
-        let price: Int64
+        let id: Int
+        let symbolId: Int
+        let price: Int
         let type: String
         let createDate: String
     }
     struct Asset: Decodable {
-        let id: Int64
+        let id: Int
         let name: String
-        let quantity: Int64
+        let quantity: Int
     }
 
     let account: Account

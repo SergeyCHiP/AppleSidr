@@ -46,6 +46,16 @@ final class Prices2 {
                     for bid in bids {
                         print(bid)
                     }
+
+                    Task {
+                        let resultBuy = await ServiceAPI().limitPriceBuy(id: company.id, price: 100, quantity: 1)
+                        print(resultBuy)
+
+                        Task {
+                            let resultSell = await ServiceAPI().limitPriceSell(id: company.id, price: 999, quantity: 1)
+                            print(resultSell)
+                        }
+                    }
                 }
             }
         }
