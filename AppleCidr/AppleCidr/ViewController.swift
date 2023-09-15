@@ -14,19 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        Task {
-            let tickets = await ServiceAPI().getSymbols()
-            TicketStorage.shared.tickets = tickets
-		}
+//        Task {
+//            let tickets = await ServiceAPI().getSymbols()
+//            TicketStorage.shared.tickets = tickets
+//		}
 		Task {
-            ChipController().start()
-            let some = await ServiceAPI().info()
-            print(some)
+           await ChipController().start()
+//            let some = await ServiceAPI().info()
         }
 
-        Task {
-            Prices().bidsByNews()
-        }
+//        Task {
+//            Prices().bidsByNews()
+//        }
 
 //        Task {
 //            let some = await ServiceAPI().getSymbols()
