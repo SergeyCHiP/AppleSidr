@@ -11,7 +11,14 @@ import Alamofire
 final class ServiceAPI {
 
     let baseUrl = "https://datsorange.devteam.games"
-    let headers = HTTPHeaders([.init(name: "token", value: "64f073ac2084f64f073ac20851")])
+    let headers = HTTPHeaders([
+        .init(name: "token", value: "64f073ac2084f64f073ac20851")
+    ])
+
+    let headersPost = HTTPHeaders([
+        .init(name: "token", value: "64f073ac2084f64f073ac20851"),
+        .init(name: "Content-Type", value: "application/json")
+    ])
 
     func news() async -> News? {
         guard let url = URL(string: baseUrl + "/news/LatestNews") else { return nil } //.failure(.empty) }
@@ -96,14 +103,13 @@ final class ServiceAPI {
         parameters["price"] = price
         parameters["quantity"] = quantity
 
-        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+        print(parameters)
+        let response = await AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersPost)
             .serializingDecodable([PostBidResult].self)
             .response
         if let value = response.value {
             return value
         }
-
-        print(response)
 
         return []
     }
@@ -115,13 +121,12 @@ final class ServiceAPI {
         parameters["price"] = price
         parameters["quantity"] = quantity
 
-        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+        let response = await AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersPost)
             .serializingDecodable([PostBidResult].self)
             .response
         if let value = response.value {
             return value
         }
-        print(response)
 
         return []
     }
@@ -131,7 +136,7 @@ final class ServiceAPI {
         var parameters = Parameters()
         parameters["bidId"] = id
 
-        let response = await AF.request(url, method: .post, parameters: parameters, headers: headers)
+        let response = await AF.request(url, method: .post, parameters: parameters, headers: headersPost)
             .serializingDecodable([PostBidResult].self)
             .response
 
@@ -176,9 +181,7 @@ struct BidStat: Decodable {
 }
 
 struct PostBidResult: Decodable {
-    let price: Int
-    let message: String
-    let bidId: Int
+    let bidId: Int64
 }
 
 struct CompanyBids: Decodable {
