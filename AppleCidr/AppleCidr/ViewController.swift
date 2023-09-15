@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         Task {
-            let some = await ServiceAPI().getSymbols()
+            let some = await ServiceAPI().info()
             print("\(some)")
         }
     }
