@@ -15,7 +15,7 @@ final class Prices {
             let tickers = news?.companiesAffected ?? []
 
             Task {
-                let buy = await ServiceAPI().buyStock()
+                let buy = await ServiceAPI().getBuyBids()
                 let bids = buy.filter { stock in
                     let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
                     return tickers.contains(ticker)
@@ -27,11 +27,15 @@ final class Prices {
             }
 
             Task {
-                let sell = await ServiceAPI().sellStock()
-                let bids = sell.filter { stock in
-                    let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
-                    return tickers.contains(ticker)
-                }
+                let sell = await ServiceAPI().getSellBids()
+                let bids = sell
+                    .filter { stock in
+                        stock.bids.count > 0
+                    }
+                    .filter { stock in
+                        let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
+                        return tickers.contains(ticker)
+                    }
 
                 print("Sell:")
                 for bid in bids {

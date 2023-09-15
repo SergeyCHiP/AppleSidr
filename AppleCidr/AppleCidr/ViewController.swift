@@ -18,13 +18,18 @@ class ViewController: UIViewController {
 //            let tickets = await ServiceAPI().getSymbols()
 //            TicketStorage.shared.tickets = tickets
 //		}
-		Task {
-           await ChipController().start()
+//		Task {
+//            ChipController().start()
 //            let some = await ServiceAPI().info()
-        }
-
+//            print(some)
+//        }
+//
 //        Task {
 //            Prices().bidsByNews()
+//        }
+
+//        Task {
+//            await ServiceAPI().
 //        }
 
 //        Task {
