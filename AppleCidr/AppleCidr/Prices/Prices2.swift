@@ -14,7 +14,7 @@ final class Prices2 {
         Task {
 //            let news = await ServiceAPI().news5Minutes()
 //            print("News: \(news)")
-//            let tickers = news.filter({ $0.rate < 0 }).reduce([], { result, news in
+//            let tickers = news.filter({ $0.rate > 0 }).reduce([], { result, news in
 //                return result + news.companiesAffected
 //            })
 
@@ -50,7 +50,7 @@ final class Prices2 {
                     }
 
                     Task {
-                        let resultBuy = await ServiceAPI().limitPriceBuy(id: company.id, price: 1, quantity: 1)
+                        let resultBuy = await ServiceAPI().limitPriceBuy(id: company.id, price: bidprice, quantity: 1)
                         print(resultBuy)
 
 //                        Task {
