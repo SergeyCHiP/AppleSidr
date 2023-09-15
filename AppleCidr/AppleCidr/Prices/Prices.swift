@@ -8,6 +8,19 @@
 import Foundation
 
 final class Prices {
+    
+    func bidsPrint(bids: [CompanyBids]) {
+        
+        for bid in bids.sorted { $0.id < $1.id } {
+            if bid.bids.count > 0 {
+                print("\n\(bid.id)  \(bid.ticker)")
+                bid.bids.forEach({
+                    print("  \($0.price)  \($0.quantity)")
+                })
+            }
+        }
+    }
+    
     func bidsByNews() {
         Task {
             let news = await ServiceAPI().news()
@@ -20,10 +33,8 @@ final class Prices {
                     let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
                     return tickers.contains(ticker)
                 }
-                print("Buy:")
-                for bid in bids {
-                    print(bid)
-                }
+                print("\nBuys:")
+                bidsPrint(bids: bids)
             }
 
             Task {
@@ -37,10 +48,8 @@ final class Prices {
                         return tickers.contains(ticker)
                     }
 
-                print("Sell:")
-                for bid in bids {
-                    print(bid)
-                }
+                print("\nSell:")
+                bidsPrint(bids: bids)
             }
         }
     }
