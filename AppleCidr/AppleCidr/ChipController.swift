@@ -10,7 +10,7 @@ import Foundation
 
 class ChipController {
     
-    func start() {
+    func start() async {
         
 //        let some = await ServiceAPI().info()
 //        print("\(some!.account)")

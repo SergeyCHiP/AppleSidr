@@ -147,6 +147,16 @@ final class ServiceAPI {
         return response.value
     }
 
+    func showInfo() async {
+        let some = await ServiceAPI().info()
+        print("\(some!.account.id)\n \(some!.account.name)")
+        print("\nBids:\n\n\(some!.bids)\n\nAssets:\n")
+
+        for asset in some!.assets {
+            let assetInfo = "\(asset.id)" + " \(asset.name)" + " \(asset.quantity)"
+            print(assetInfo)
+        }
+    }
 }
 
 enum CidrError {
