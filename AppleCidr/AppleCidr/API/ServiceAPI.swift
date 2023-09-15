@@ -50,11 +50,24 @@ final class ServiceAPI {
         return []
     }
 
-    func sellStock() async -> [SellStockResponse] {
+    func getSellBids() async -> [CompanyBids] {
         var request = URLRequest(url: .init(string: baseUrl + "/sellStock")!)
         request.headers = headers
         let response = await AF.request(request)
-            .serializingDecodable([SellStockResponse].self)
+            .serializingDecodable([CompanyBids].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
+    func getBuyBids() async -> [CompanyBids] {
+        var request = URLRequest(url: .init(string: baseUrl + "/buyStock")!)
+        request.headers = headers
+        let response = await AF.request(request)
+            .serializingDecodable([CompanyBids].self)
             .response
         if let value = response.value {
             return value
@@ -68,19 +81,6 @@ final class ServiceAPI {
         request.headers = headers
         let response = await AF.request(request)
             .serializingDecodable([GetSymbol].self)
-            .response
-        if let value = response.value {
-            return value
-        }
-
-        return []
-    }
-
-    func buyStock() async -> [SellStockResponse] {
-        var request = URLRequest(url: .init(string: baseUrl + "/buyStock")!)
-        request.headers = headers
-        let response = await AF.request(request)
-            .serializingDecodable([SellStockResponse].self)
             .response
         if let value = response.value {
             return value
@@ -116,7 +116,7 @@ struct BidStat: Decodable {
     let quantity: Int32
 }
 
-struct SellStockResponse: Decodable {
+struct CompanyBids: Decodable {
     let id: Int64
     let ticker: String
     let bids: [BidStat]
