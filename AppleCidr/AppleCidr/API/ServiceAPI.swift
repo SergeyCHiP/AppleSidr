@@ -37,11 +37,50 @@ final class ServiceAPI {
         return []
     }
 
-    func news5Minutes() async -> [News]{
+    func news5Minutes() async -> [News] {
         var request = URLRequest(url: .init(string: baseUrl + "/news/LatestNews5Minutes")!)
         request.headers = headers
         let response = await AF.request(request)
             .serializingDecodable([News].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
+    func sellStock() async -> [SellStockResponse] {
+        var request = URLRequest(url: .init(string: baseUrl + "/sellStock")!)
+        request.headers = headers
+        let response = await AF.request(request)
+            .serializingDecodable([SellStockResponse].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
+    func getSymbols() async -> [GetSymbol] {
+        var request = URLRequest(url: .init(string: baseUrl + "/getSymbols")!)
+        request.headers = headers
+        let response = await AF.request(request)
+            .serializingDecodable([GetSymbol].self)
+            .response
+        if let value = response.value {
+            return value
+        }
+
+        return []
+    }
+
+    func buyStock() async -> [SellStockResponse] {
+        var request = URLRequest(url: .init(string: baseUrl + "/buyStock")!)
+        request.headers = headers
+        let response = await AF.request(request)
+            .serializingDecodable([SellStockResponse].self)
             .response
         if let value = response.value {
             return value
@@ -61,4 +100,20 @@ struct News: Decodable {
     let text: String
     let rate: Int
     let companiesAffected: [String]
+}
+
+struct BidStat: Decodable {
+    let price: Int64
+    let quantity: Int32
+}
+
+struct SellStockResponse: Decodable {
+    let id: Int64
+    let ticker: String
+    let bids: [BidStat]
+}
+
+struct GetSymbol: Decodable {
+    let id: Int64
+    let ticker: String
 }
