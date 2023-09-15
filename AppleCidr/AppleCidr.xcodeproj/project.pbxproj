@@ -14,6 +14,9 @@
 		5EFAE7122AB49E8600EE5495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE7112AB49E8600EE5495 /* Assets.xcassets */; };
 		5EFAE7152AB49E8600EE5495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE7132AB49E8600EE5495 /* LaunchScreen.storyboard */; };
 		5EFAE71D2AB49F6C00EE5495 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE71C2AB49F6C00EE5495 /* ServiceAPI.swift */; };
+		5EFAE7262AB4B0AD00EE5495 /* BidsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7252AB4B0AD00EE5495 /* BidsStorage.swift */; };
+		5EFAE7282AB4B26300EE5495 /* TicketStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7272AB4B26300EE5495 /* TicketStorage.swift */; };
+		5EFAE72B2AB4B84D00EE5495 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE72A2AB4B84D00EE5495 /* Prices.swift */; };
 		840310C258D1EDFCFD1CC593 /* Pods_AppleCidr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581336929595E129307FA672 /* Pods_AppleCidr.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		5EFAE7142AB49E8600EE5495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EFAE7162AB49E8600EE5495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFAE71C2AB49F6C00EE5495 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		5EFAE7252AB4B0AD00EE5495 /* BidsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsStorage.swift; sourceTree = "<group>"; };
+		5EFAE7272AB4B26300EE5495 /* TicketStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStorage.swift; sourceTree = "<group>"; };
+		5EFAE72A2AB4B84D00EE5495 /* Prices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		745E1DB5077FB0E1B7105702 /* Pods-AppleCidr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleCidr.debug.xcconfig"; path = "Target Support Files/Pods-AppleCidr/Pods-AppleCidr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,10 +71,12 @@
 		5EFAE7072AB49E8500EE5495 /* AppleCidr */ = {
 			isa = PBXGroup;
 			children = (
+				5EFAE7292AB4B83E00EE5495 /* Prices */,
 				5EFAE7082AB49E8500EE5495 /* AppDelegate.swift */,
 				5EFAE70A2AB49E8500EE5495 /* SceneDelegate.swift */,
 				5EFAE70C2AB49E8500EE5495 /* ViewController.swift */,
 				5EFAE71E2AB49F6F00EE5495 /* API */,
+				5EFAE7242AB4AFDD00EE5495 /* Storage */,
 				5EFAE70E2AB49E8500EE5495 /* Main.storyboard */,
 				5EFAE7112AB49E8600EE5495 /* Assets.xcassets */,
 				5EFAE7132AB49E8600EE5495 /* LaunchScreen.storyboard */,
@@ -83,6 +91,23 @@
 				5EFAE71C2AB49F6C00EE5495 /* ServiceAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		5EFAE7242AB4AFDD00EE5495 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5EFAE7252AB4B0AD00EE5495 /* BidsStorage.swift */,
+				5EFAE7272AB4B26300EE5495 /* TicketStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5EFAE7292AB4B83E00EE5495 /* Prices */ = {
+			isa = PBXGroup;
+			children = (
+				5EFAE72A2AB4B84D00EE5495 /* Prices.swift */,
+			);
+			path = Prices;
 			sourceTree = "<group>";
 		};
 		9046CE05704371CC83021812 /* Frameworks */ = {
@@ -218,9 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EFAE70D2AB49E8500EE5495 /* ViewController.swift in Sources */,
+				5EFAE7282AB4B26300EE5495 /* TicketStorage.swift in Sources */,
 				5EFAE7092AB49E8500EE5495 /* AppDelegate.swift in Sources */,
 				5EFAE71D2AB49F6C00EE5495 /* ServiceAPI.swift in Sources */,
+				5EFAE7262AB4B0AD00EE5495 /* BidsStorage.swift in Sources */,
 				5EFAE70B2AB49E8500EE5495 /* SceneDelegate.swift in Sources */,
+				5EFAE72B2AB4B84D00EE5495 /* Prices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

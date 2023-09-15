@@ -15,9 +15,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         Task {
-            let some = await ServiceAPI().getSymbols()
-            print("\(some)")
+            let tickets = await ServiceAPI().getSymbols()
+            TicketStorage.shared.tickets = tickets
         }
+
+        Task {
+            Prices().bidsByNews()
+        }
+
+//        Task {
+//            let some = await ServiceAPI().getSymbols()
+//            print("\(some)")
+//        }
     }
 
 }
