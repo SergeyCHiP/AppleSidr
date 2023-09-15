@@ -8,13 +8,15 @@
 import Foundation
 
 final class Prices2 {
+
+    let bidprice = 200
     func bidsByNews() {
         Task {
-            let news = await ServiceAPI().news5Minutes()
+//            let news = await ServiceAPI().news5Minutes()
 //            print("News: \(news)")
-            let tickers = news.filter({ $0.rate > 0 }).reduce([], { result, news in
-                return result + news.companiesAffected
-            })
+//            let tickers = news.filter({ $0.rate < 0 }).reduce([], { result, news in
+//                return result + news.companiesAffected
+//            })
 
 //            Task {
 //                let buy = await ServiceAPI().getBuyBids()
@@ -32,29 +34,29 @@ final class Prices2 {
                 let sell = await ServiceAPI().getSellBids()
                 let companies = sell
                     .filter { stock in
-                        stock.bids.filter({ $0.price < 100 }).count > 0
+                        stock.bids.filter({ $0.price < bidprice }).count > 0
                     }
-                    .filter { stock in
-                        let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
-                        return tickers.contains(ticker)
-                    }
+//                    .filter { stock in
+//                        let ticker = stock.ticker.replacingOccurrences(of: "Oranges/", with: "")
+//                        return tickers.contains(ticker)
+//                    }
 
                 print("Sell:")
-                for company in companies {
+                for company in companies.prefix(1) {
                     print(company.ticker)
-                    let bids = company.bids.filter { $0.price < 100 }
+                    let bids = company.bids.filter { $0.price < bidprice }
                     for bid in bids {
                         print(bid)
                     }
 
                     Task {
-                        let resultBuy = await ServiceAPI().limitPriceBuy(id: company.id, price: 100, quantity: 1)
+                        let resultBuy = await ServiceAPI().limitPriceBuy(id: company.id, price: 1, quantity: 1)
                         print(resultBuy)
 
-                        Task {
-                            let resultSell = await ServiceAPI().limitPriceSell(id: company.id, price: 999, quantity: 1)
-                            print(resultSell)
-                        }
+//                        Task {
+//                            let resultSell = await ServiceAPI().limitPriceSell(id: company.id, price: 999, quantity: 1)
+//                            print(resultSell)
+//                        }
                     }
                 }
             }
