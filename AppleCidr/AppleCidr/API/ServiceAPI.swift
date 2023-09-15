@@ -89,6 +89,15 @@ final class ServiceAPI {
         return []
     }
 
+    func info() async -> InfoResponse? {
+        var request = URLRequest(url: .init(string: baseUrl + "/info")!)
+        request.headers = headers
+        let response = await AF.request(request)
+            .serializingDecodable(InfoResponse.self)
+            .response
+        return response.value
+    }
+
 }
 
 enum CidrError {
@@ -116,4 +125,27 @@ struct SellStockResponse: Decodable {
 struct GetSymbol: Decodable {
     let id: Int64
     let ticker: String
+}
+
+struct InfoResponse: Decodable {
+    struct Account: Decodable {
+        let id: Int64
+        let name: String
+    }
+    struct Bid: Decodable {
+        let id: Int64
+        let symbolId: Int64
+        let price: Int64
+        let type: String
+        let createDate: String
+    }
+    struct Asset: Decodable {
+        let id: Int64
+        let name: String
+        let quantity: Int64
+    }
+
+    let account: Account
+    let bids: [Bid]
+    let assets: [Asset]
 }
