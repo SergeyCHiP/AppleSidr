@@ -15,6 +15,7 @@
 		5EFAE7152AB49E8600EE5495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE7132AB49E8600EE5495 /* LaunchScreen.storyboard */; };
 		5EFAE71D2AB49F6C00EE5495 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE71C2AB49F6C00EE5495 /* ServiceAPI.swift */; };
 		840310C258D1EDFCFD1CC593 /* Pods_AppleCidr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581336929595E129307FA672 /* Pods_AppleCidr.framework */; };
+		CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA3E402AB4B64C0043ECCC /* ChipController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5EFAE7162AB49E8600EE5495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFAE71C2AB49F6C00EE5495 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
 		745E1DB5077FB0E1B7105702 /* Pods-AppleCidr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleCidr.debug.xcconfig"; path = "Target Support Files/Pods-AppleCidr/Pods-AppleCidr.debug.xcconfig"; sourceTree = "<group>"; };
+		CDCA3E402AB4B64C0043ECCC /* ChipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				5EFAE7112AB49E8600EE5495 /* Assets.xcassets */,
 				5EFAE7132AB49E8600EE5495 /* LaunchScreen.storyboard */,
 				5EFAE7162AB49E8600EE5495 /* Info.plist */,
+				CDCA3E402AB4B64C0043ECCC /* ChipController.swift */,
 			);
 			path = AppleCidr;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				5EFAE7092AB49E8500EE5495 /* AppDelegate.swift in Sources */,
 				5EFAE71D2AB49F6C00EE5495 /* ServiceAPI.swift in Sources */,
 				5EFAE70B2AB49E8500EE5495 /* SceneDelegate.swift in Sources */,
+				CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
