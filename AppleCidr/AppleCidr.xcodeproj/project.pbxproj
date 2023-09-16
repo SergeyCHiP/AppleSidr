@@ -19,6 +19,11 @@
 		5EFAE72B2AB4B84D00EE5495 /* Prices2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE72A2AB4B84D00EE5495 /* Prices2.swift */; };
 		5EFAE72D2AB4C78C00EE5495 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE72C2AB4C78C00EE5495 /* Prices.swift */; };
 		5EFAE7752AB4DE6900EE5495 /* Bids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7742AB4DE6900EE5495 /* Bids.swift */; };
+		5EFAE7782AB51C8400EE5495 /* SellBidsFetchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7772AB51C8400EE5495 /* SellBidsFetchInteractor.swift */; };
+		5EFAE77A2AB5239500EE5495 /* BuyBidsFetchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7792AB5239500EE5495 /* BuyBidsFetchInteractor.swift */; };
+		5EFAE77C2AB5243D00EE5495 /* NewsFetchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */; };
+		5EFAE77F2AB52BC300EE5495 /* NewsAffectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE77E2AB52BC300EE5495 /* NewsAffectInteractor.swift */; };
+		5EFAE7812AB52CAE00EE5495 /* PriceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7802AB52CAE00EE5495 /* PriceInteractor.swift */; };
 		840310C258D1EDFCFD1CC593 /* Pods_AppleCidr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581336929595E129307FA672 /* Pods_AppleCidr.framework */; };
 		CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA3E402AB4B64C0043ECCC /* ChipController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +45,11 @@
 		5EFAE72A2AB4B84D00EE5495 /* Prices2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prices2.swift; sourceTree = "<group>"; };
 		5EFAE72C2AB4C78C00EE5495 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		5EFAE7742AB4DE6900EE5495 /* Bids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bids.swift; sourceTree = "<group>"; };
+		5EFAE7772AB51C8400EE5495 /* SellBidsFetchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellBidsFetchInteractor.swift; sourceTree = "<group>"; };
+		5EFAE7792AB5239500EE5495 /* BuyBidsFetchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyBidsFetchInteractor.swift; sourceTree = "<group>"; };
+		5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFetchInteractor.swift; sourceTree = "<group>"; };
+		5EFAE77E2AB52BC300EE5495 /* NewsAffectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAffectInteractor.swift; sourceTree = "<group>"; };
+		5EFAE7802AB52CAE00EE5495 /* PriceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceInteractor.swift; sourceTree = "<group>"; };
 		745E1DB5077FB0E1B7105702 /* Pods-AppleCidr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleCidr.debug.xcconfig"; path = "Target Support Files/Pods-AppleCidr/Pods-AppleCidr.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCA3E402AB4B64C0043ECCC /* ChipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,12 +87,12 @@
 		5EFAE7072AB49E8500EE5495 /* AppleCidr */ = {
 			isa = PBXGroup;
 			children = (
+				5EFAE7762AB51C4500EE5495 /* Interactor */,
 				5EFAE7292AB4B83E00EE5495 /* Prices */,
 				5EFAE7082AB49E8500EE5495 /* AppDelegate.swift */,
 				5EFAE70A2AB49E8500EE5495 /* SceneDelegate.swift */,
 				5EFAE70C2AB49E8500EE5495 /* ViewController.swift */,
 				5EFAE71E2AB49F6F00EE5495 /* API */,
-				5EFAE7242AB4AFDD00EE5495 /* Storage */,
 				5EFAE70E2AB49E8500EE5495 /* Main.storyboard */,
 				5EFAE7112AB49E8600EE5495 /* Assets.xcassets */,
 				5EFAE7132AB49E8600EE5495 /* LaunchScreen.storyboard */,
@@ -117,6 +127,27 @@
 				5EFAE7742AB4DE6900EE5495 /* Bids.swift */,
 			);
 			path = Prices;
+			sourceTree = "<group>";
+		};
+		5EFAE7762AB51C4500EE5495 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5EFAE7242AB4AFDD00EE5495 /* Storage */,
+				5EFAE77D2AB52BA300EE5495 /* Fetch */,
+				5EFAE7802AB52CAE00EE5495 /* PriceInteractor.swift */,
+				5EFAE77E2AB52BC300EE5495 /* NewsAffectInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		5EFAE77D2AB52BA300EE5495 /* Fetch */ = {
+			isa = PBXGroup;
+			children = (
+				5EFAE7772AB51C8400EE5495 /* SellBidsFetchInteractor.swift */,
+				5EFAE7792AB5239500EE5495 /* BuyBidsFetchInteractor.swift */,
+				5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */,
+			);
+			path = Fetch;
 			sourceTree = "<group>";
 		};
 		9046CE05704371CC83021812 /* Frameworks */ = {
@@ -253,15 +284,20 @@
 			files = (
 				5EFAE70D2AB49E8500EE5495 /* ViewController.swift in Sources */,
 				5EFAE7282AB4B26300EE5495 /* TicketStorage.swift in Sources */,
+				5EFAE77C2AB5243D00EE5495 /* NewsFetchInteractor.swift in Sources */,
 				5EFAE7092AB49E8500EE5495 /* AppDelegate.swift in Sources */,
 				5EFAE7752AB4DE6900EE5495 /* Bids.swift in Sources */,
 				5EFAE71D2AB49F6C00EE5495 /* ServiceAPI.swift in Sources */,
 				5EFAE7262AB4B0AD00EE5495 /* BidsStorage.swift in Sources */,
 				5EFAE70B2AB49E8500EE5495 /* SceneDelegate.swift in Sources */,
+				5EFAE77F2AB52BC300EE5495 /* NewsAffectInteractor.swift in Sources */,
 				5EFAE72B2AB4B84D00EE5495 /* Prices2.swift in Sources */,
 				5EFAE72D2AB4C78C00EE5495 /* Prices.swift in Sources */,
 				5EFAE72B2AB4B84D00EE5495 /* Prices2.swift in Sources */,
+				5EFAE77A2AB5239500EE5495 /* BuyBidsFetchInteractor.swift in Sources */,
 				CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */,
+				5EFAE7812AB52CAE00EE5495 /* PriceInteractor.swift in Sources */,
+				5EFAE7782AB51C8400EE5495 /* SellBidsFetchInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
