@@ -24,6 +24,7 @@
 		5EFAE77C2AB5243D00EE5495 /* NewsFetchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */; };
 		5EFAE77F2AB52BC300EE5495 /* NewsAffectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE77E2AB52BC300EE5495 /* NewsAffectInteractor.swift */; };
 		5EFAE7812AB52CAE00EE5495 /* PriceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7802AB52CAE00EE5495 /* PriceInteractor.swift */; };
+		5EFAE7832AB5847A00EE5495 /* StockFetchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE7822AB5847A00EE5495 /* StockFetchInteractor.swift */; };
 		840310C258D1EDFCFD1CC593 /* Pods_AppleCidr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581336929595E129307FA672 /* Pods_AppleCidr.framework */; };
 		CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA3E402AB4B64C0043ECCC /* ChipController.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFetchInteractor.swift; sourceTree = "<group>"; };
 		5EFAE77E2AB52BC300EE5495 /* NewsAffectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAffectInteractor.swift; sourceTree = "<group>"; };
 		5EFAE7802AB52CAE00EE5495 /* PriceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceInteractor.swift; sourceTree = "<group>"; };
+		5EFAE7822AB5847A00EE5495 /* StockFetchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFetchInteractor.swift; sourceTree = "<group>"; };
 		745E1DB5077FB0E1B7105702 /* Pods-AppleCidr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleCidr.debug.xcconfig"; path = "Target Support Files/Pods-AppleCidr/Pods-AppleCidr.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCA3E402AB4B64C0043ECCC /* ChipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 		5EFAE77D2AB52BA300EE5495 /* Fetch */ = {
 			isa = PBXGroup;
 			children = (
+				5EFAE7822AB5847A00EE5495 /* StockFetchInteractor.swift */,
 				5EFAE7772AB51C8400EE5495 /* SellBidsFetchInteractor.swift */,
 				5EFAE7792AB5239500EE5495 /* BuyBidsFetchInteractor.swift */,
 				5EFAE77B2AB5243D00EE5495 /* NewsFetchInteractor.swift */,
@@ -293,6 +296,7 @@
 				5EFAE77F2AB52BC300EE5495 /* NewsAffectInteractor.swift in Sources */,
 				5EFAE72B2AB4B84D00EE5495 /* Prices2.swift in Sources */,
 				5EFAE72D2AB4C78C00EE5495 /* Prices.swift in Sources */,
+				5EFAE7832AB5847A00EE5495 /* StockFetchInteractor.swift in Sources */,
 				5EFAE72B2AB4B84D00EE5495 /* Prices2.swift in Sources */,
 				5EFAE77A2AB5239500EE5495 /* BuyBidsFetchInteractor.swift in Sources */,
 				CDCA3E412AB4B64C0043ECCC /* ChipController.swift in Sources */,

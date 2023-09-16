@@ -103,7 +103,7 @@ final class ServiceAPI {
         parameters["price"] = price
         parameters["quantity"] = quantity
 
-        print(parameters)
+//        print(parameters)
         let response = await AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersPost)
             .serializingDecodable([PostBidResult].self)
             .response
@@ -168,7 +168,7 @@ enum CidrError {
     case empty
 }
 
-struct News: Decodable {
+struct News: Codable {
     let date: String
     let text: String
     let rate: Int

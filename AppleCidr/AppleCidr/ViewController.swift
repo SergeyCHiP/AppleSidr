@@ -12,22 +12,45 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        Task {
+            await TicketStorage.shared.setup()
+
+            let _ = SellBidsFetchInteractor.shared
+            let _ = BuyBidsFetchInteractor.shared
+            let _ = NewsFetchInteractor.shared
+            let _ = StockFetchInteractor.shared
+
+            let _ = PriceInteractor.shared
+            let _ = NewsAffectInteractor.shared
+        }
+        
 
 //        Task {
-//            let tickets = await ServiceAPI().getSymbols()
-//            TicketStorage.shared.tickets = tickets
-//		}
-		Task {
-            await ChipController().start()
-        }
+//            while true {
+//
+//                let resultSell = await ServiceAPI().limitPriceSell(id: 501, price: 270, quantity: 2)
+//                print(resultSell)
+//                sleep(60)
+//            }
+//        }
+//        Task {
+//            Bids().bids(by: 501)
+//        }
+
+        // Do any additional setup after loading the view.
+
+//		Task {
+//            await ChipController().start()
+//        }
 //
 //        Task {
-//            Prices().bidsByNews()
+//            Prices2().bidsByNews()
 //        }
 
 //        Task {
-//            await ServiceAPI().
+//            let result = await ServiceAPI().getSymbols()
+//            print(result)
 //        }
 
 //        Task {
@@ -38,3 +61,10 @@ class ViewController: UIViewController {
 
 }
 
+
+extension Task where Success == Never, Failure == Never {
+    static func sleep(seconds: Double) async throws {
+        let duration = UInt64(seconds * 1_000_000_000)
+        try await Task.sleep(nanoseconds: duration)
+    }
+}
